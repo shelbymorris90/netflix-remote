@@ -5,8 +5,6 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-let client = null;
-
 app.use(express.static('public'));
 
 app.get('/pause', (req, res) => {
@@ -25,11 +23,14 @@ server.listen(4545, () => {
   console.log('Express server started on port: 4545');
 });
 
-io.on('connection', (socket) => {
-  console.log('client connected.');
-  client = socket;
-  
+io.on('connection', (socket) => {  
   socket.on('video-title', (title) => {
-    console.log('ViDEO TITLE: ' + title);
+    io.emit('video-info', {
+      title: title
+    });
+  });
+  
+  socket.on('timeupdate', (update) => {
+    io.emit('current-time', update);
   });
 });
