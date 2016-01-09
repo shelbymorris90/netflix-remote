@@ -27,7 +27,9 @@ var updateInterval = setInterval(() => {
   try {
     if(!vp.currentTime) return;
     
-    socket.emit('video-title', document.getElementsByClassName('player-status-main-title')[0].innerText);
+    var videoTitle = document.getElementsByClassName('player-status-main-title')[0].innerText;
+    
+    socket.emit('video-title', videoTitle);
     
     vp.addEventListener('timeupdate', onTimeUpdate);
     
