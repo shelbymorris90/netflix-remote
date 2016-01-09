@@ -33,3 +33,4 @@ The application is simply a background process which enables a web-based interfa
 - [ ] Browse / Select content via Remote
 - [ ] Now Playing Thumbnail (in addition to the text which is currently in place)
 - [ ] Package App into exectuable for Linux/OS X/Windows (via Electron)
+- [ ] Hide `long-pause-container` if no pause request was recently sent
