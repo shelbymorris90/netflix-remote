@@ -28,4 +28,8 @@ server.listen(4545, () => {
 io.on('connection', (socket) => {
   console.log('client connected.');
   client = socket;
+  
+  socket.on('video-title', (title) => {
+    console.log('ViDEO TITLE: ' + title);
+  });
 });

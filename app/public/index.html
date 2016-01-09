@@ -3,7 +3,7 @@
 <head>
     <title> Netflix Remote </title>
     
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="./main.css" />
 </head>
 <body>
@@ -17,8 +17,14 @@
     </div>
   </main>
   
+  <script type="application/javascript" src="./bower_components/moment/moment.js"></script>
   <script type="application/javascript" src="./bower_components/aja/aja.min.js"></script>
   <script type="application/javascript">
+    var timeA = Date.now();
+    var timeB = timeA - (3898.197333 * 1000);
+    
+    console.log(moment(timeA).diff(moment(timeB), 'minutes') + ' minutes');
+  
     var $play = document.getElementById('play');
     var $pause = document.getElementById('pause');
     
