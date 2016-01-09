@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <title> Netflix Remote </title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./main.css" />
+</head>
+<body>
+  
+  <main>
+    <div>
+      <h1> Netflix Remote </h1>
+    </div>
+    <div>
+      <button id="play">Play</button> <button id="pause">Pause</button>
+    </div>
+  </main>
+  
+  <script type="application/javascript" src="./bower_components/aja/aja.min.js"></script>
+  <script type="application/javascript">
+    var $play = document.getElementById('play');
+    var $pause = document.getElementById('pause');
+    
+    $play.addEventListener('click', () => {
+      aja().url('/play').go();
+    });
+    
+    $pause.addEventListener('click', () => {
+      aja().url('/pause').go();
+    });
+  </script>
+</body>

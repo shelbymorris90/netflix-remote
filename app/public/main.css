@@ -1,0 +1,32 @@
+body {
+  color: #fff;
+  background-color: #E50914;
+  font: 16px/1.7 Roboto, "Helvetica Neue", Helvetica, arial, sans-serif;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+button {
+  background-color: #E50914;
+  border: 1px solid rgba(255, 255, 255, .7);
+  color: rgba(255, 255, 255, .7);
+  padding: 6px;
+  border-radius: 2px;
+  font-size: 150%;
+}
+
+button:hover {
+  border: 1px solid rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}

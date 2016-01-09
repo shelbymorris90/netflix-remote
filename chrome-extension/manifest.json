@@ -1,0 +1,24 @@
+{
+  "name": "Netflix Remote",
+  "version": "0.0.1",
+  "description": "Allows remote control of Netflix",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://netflix.com/*", "http://www.netflix.com/*", "https://netflix.com/*"],
+      "js": ["socket.io.js", "remote.js"]
+    }
+  ],
+  "page_action": {
+    "default_icon": "remote-24.png",
+    "default_title": "Netflix Remote"
+  },
+  "permissions": [
+    "declarativeContent"
+  ],
+  "manifest_version": 2
+}
