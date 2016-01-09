@@ -2,13 +2,15 @@
   "name": "netflix-remote-app",
   "version": "0.0.1",
   "description": "",
-  "main": "server.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Shelby L Morris <secretagentxnine@gmail.com>",
   "license": "MIT",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.3"
+  },
   "dependencies": {
     "express": "^4.13.3",
     "socket.io": "^1.4.3"

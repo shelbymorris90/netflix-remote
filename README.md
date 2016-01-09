@@ -19,7 +19,7 @@ The application is simply a background process which enables a web-based interfa
 - In a command prompt/terminal, navigate to the `netflix-remote/app` directory
 - Type `npm install` to download the dependencies
 - Navigate to the `public` directory in the command prompt/terminal window and type `bower install`
-- Now navigate back to the `netflix-remote/app` directory and type `node server.js`
+- Now navigate back to the `netflix-remote/app` directory and type `electron .`
 
 ### Basic Usage (at the time of this writing)
 - Open a web-browser and go to `http://localhost:4545` and you will see the basic remote interface

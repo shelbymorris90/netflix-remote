@@ -14,7 +14,7 @@
     }
   ],
   "page_action": {
-    "default_icon": "remote-24.png",
+    "default_icon": "icon_48x48_dark.png",
     "default_title": "Netflix Remote"
   },
   "permissions": [

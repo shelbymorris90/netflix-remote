@@ -1,6 +1,7 @@
 console.log('[Netflix Remote]');
 
 var socket = io('ws://localhost:4545');
+var currentVideoTitle = null;
 var lastTimeUpdate = 0;
 
 function findVideoPlayer() {
@@ -16,8 +17,12 @@ function findVideoPlayer() {
 function onTimeUpdate(event) {
   if(typeof lastTimeUpdate === 'number' && event.target.currentTime >= lastTimeUpdate + 1) {
     lastTimeUpdate = event.target.currentTime;
-    socket.emit('timeupdate', lastTimeUpdate);
-    console.log(lastTimeUpdate);
+    
+    socket.emit('player-update', {
+      elapsed: lastTimeUpdate,
+      duration: event.target.duration,
+      title: currentVideoTitle
+    });
   }
 }
 
@@ -25,18 +30,16 @@ var updateInterval = setInterval(() => {
   var vp = findVideoPlayer();
   
   try {
-    if(!vp.currentTime) return;
+    if(vp === null || !vp.currentTime) return;
     
-    var videoTitle = document.getElementsByClassName('player-status-main-title')[0].innerText;
-    
-    socket.emit('video-title', videoTitle);
+    currentVideoTitle = document.getElementsByClassName('player-status-main-title')[0].innerText;
     
     vp.addEventListener('timeupdate', onTimeUpdate);
     
     clearInterval(updateInterval);
   }
   catch(e) {
-    console.error(e);
+    //console.error(e);
   }
   
 }, 1000);

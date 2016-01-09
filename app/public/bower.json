@@ -1,13 +1,13 @@
 {
   "name": "netflix-remote-app",
-  "homepage": "https://github.com/shelbymorris90/netflix-remote",
   "description": "",
-  "main": "",
-  "moduleType": [],
+  "main": "main.js",
   "authors": [
     "Shelby L Morris <secretagentxnine@gmail.com>"
   ],
   "license": "MIT",
+  "homepage": "https://github.com/shelbymorris90/netflix-remote",
+  "moduleType": [],
   "ignore": [
     "**/.*",
     "node_modules",

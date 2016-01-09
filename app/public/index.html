@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title> Netflix Remote </title>
     
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css" />
@@ -12,62 +14,31 @@
     <div>
       <h1> Netflix Remote </h1>
     </div>
-    <div>
-      <h2 id="current-title"></h2>
+    <div class="left">
+      <h2> Currently Playing </h2>
+      <h3 id="current-title"> Nothing... </h3>
     </div>
     <div>
       <div id="timeline">
-        <div class="label" id="time-elapsed"> X X X </div>
+        <div class="label" id="time-elapsed"> 0:00 </div>/
+        <div class="label" id="time-duration"> 0:00 </div>
         <div id="bar">
           <div id="current-position"></div>
         </div>
-        <div class="label" id="time-duration"> X X X </div>
       </div>
-      <button id="play">Play</button> <button id="pause">Pause</button>
+      <div id="controls">
+        <div>
+          <button id="play">Play</button>
+        </div>
+        <div>
+          <button id="pause">Pause</button>
+        </div>
+      </div>
     </div>
   </main>
   
-  <script type="application/javascript" src="/socket.io/socket.io.js"></script>
-  <script type="application/javascript" src="./bower_components/moment/moment.js"></script>
   <script type="application/javascript" src="./bower_components/aja/aja.min.js"></script>
-  <script type="application/javascript">
-    var socket = io('ws://localhost:4545');
-    
-    var timeA = Date.now();
-    var timeB = timeA - (3898.197333 * 1000);
-    
-    console.log(moment(timeA).diff(moment(timeB), 'minutes') + ' minutes');
-  
-    var $title = document.getElementById('current-title');
-    var $timeElapsed = document.getElementById('time-elapsed');
-    var $timeDuration = document.getElementById('time-duration');
-    var $play = document.getElementById('play');
-    var $pause = document.getElementById('pause');
-    
-    $play.addEventListener('click', () => {
-      aja().url('/play').go();
-    });
-    
-    $pause.addEventListener('click', () => {
-      aja().url('/pause').go();
-    });
-    
-    socket.on('video-info', (info) => {
-      if(!info) return;
-      
-      
-      if(info.title) {
-        $title.innerText = 'Now Playing: ' + info.title;
-      }
-      
-      if(info.duration) {
-        $timeDuration.innerText = info.duration;
-      }
-    });
-    
-    socket.on('current-time', (timeElapsed) => {
-      $timeElapsed.innerText = Math.round(timeElapsed);
-    });
-  </script>
+  <script type="application/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="application/javascript" src="./js/app.js"></script>
 </body>
 </html>
