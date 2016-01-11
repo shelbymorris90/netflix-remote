@@ -21,7 +21,7 @@ module.exports = () => {
   });
 
   server.listen(4545, () => {
-    console.log('Express server started on port: 4545');
+    console.log('Server started on port: 4545');
   });
 
   io.on('connection', (socket) => {

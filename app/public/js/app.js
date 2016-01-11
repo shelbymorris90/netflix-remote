@@ -95,7 +95,6 @@ function init() {
 }
 
 function playerUpdate(update) {
-  console.log('playerUpdate: ', update);
   let elapsed = update.elapsed;
   let duration = update.duration;
   let currentTitle = update.title;
