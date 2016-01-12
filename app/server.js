@@ -28,5 +28,15 @@ module.exports = () => {
     socket.on('player-update', (update) => {
       io.emit('playerUpdate', update);    
     });
+    
+    socket.on('browse-rows', (r) => {
+      var c = [];
+      for(var i = 0; i <= 4; i++) {
+        c.push(r.rows[i]);
+      }
+      console.log('browse-rows: ');
+      console.log(c);
+      io.emit('rows', c);
+    });
   });
 };

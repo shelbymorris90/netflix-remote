@@ -82,6 +82,18 @@ function init() {
   
   socket.on('playerUpdate', playerUpdate);
   
+  socket.on('rows', (rows) => {
+    console.log('rows');
+    console.log(rows);
+    var rowContainer = document.getElementById('row-container');
+    
+    rowContainer.innerHTML = '';
+    
+    rows.forEach((row) => {
+      rowContainer.innerHTML += row;
+    });
+  });
+  
   var $play = document.getElementById('play');
   var $pause = document.getElementById('pause');
     
